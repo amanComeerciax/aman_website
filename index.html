@@ -41,12 +41,25 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- React & ReactDOM -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- React & ReactDOM (Production) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 
-  <!-- Babel for JSX -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- JSON-LD Schema Markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mohammad Aman Memon",
+      "url": "https://mohammadaman.in",
+      "jobTitle": "Full Stack Developer",
+      "sameAs": [
+        "https://github.com/amanComeerciax",
+        "https://www.linkedin.com/in/mohammad-aman-memon/"
+      ],
+      "knowsAbout": ["React", "Next.js", "GSAP", "Tailwind CSS", "Node.js", "AI Integrations"]
+    }
+  </script>
 
   <!-- GSAP & Plugins -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -531,13 +544,33 @@
 
     // --- Section 3: Selected Works ---
     const SelectedWorks = () => {
-      const [projects, setProjects] = useState([]);
+      const PROJECTS_DATA = [
+        { title: "AI Upsell Engine", span: "md:col-span-8", img: "./images/upsell.png", desc: "Intelligent upselling platform for modern businesses.", stack: "Next.js, React, AI", link: "https://aiupsellengine.mohammadaman.in/" },
+        { title: "AI Website Builder", span: "md:col-span-4", img: "./images/websitebuilder.png", desc: "Multi-model AI routing & dynamic Next.js generation.", stack: "TypeScript, AI Models", link: "https://websitebuilder.mohammadaman.in/" },
+        { title: "PDF Analyzer", span: "md:col-span-4", img: "./images/pdfanalyzer.png", desc: "AI-powered document analysis and insight extraction.", stack: "Python, Next.js, OpenAI", link: "https://ragpdf.mohammadaman.in/" },
+        { title: "MyTube Platform", span: "md:col-span-8", img: "./images/mytube.png", desc: "Feature-rich video streaming platform clone.", stack: "React, Node.js, API", link: "https://mytube.mohammadaman.in/" },
+        { title: "SIS Landing Page", span: "md:col-span-6", img: "./images/sis.png", desc: "High-performance landing page for enterprise systems.", stack: "React, Tailwind", link: "https://sislanding.mohammadaman.in/" },
+        { title: "Personal Portfolio", span: "md:col-span-6", img: "./images/portfolio.png", desc: "Premium personal portfolio showcasing my engineering work.", stack: "React, Tailwind, Framer", link: "https://portfolio.mohammadaman.in/" }
+      ];
+
+      const [projects, setProjects] = useState(PROJECTS_DATA);
 
       useEffect(() => {
         fetch('./projects.json')
           .then(res => res.json())
-          .then(data => setProjects(data))
-          .catch(err => console.error("Error fetching projects:", err));
+          .then(data => {
+            setProjects(data);
+            // Refresh ScrollTrigger after a short delay to allow layout to settle
+            setTimeout(() => {
+              ScrollTrigger.refresh();
+            }, 100);
+          })
+          .catch(() => {
+            // Even on fallback, refresh to be safe
+            setTimeout(() => {
+              ScrollTrigger.refresh();
+            }, 100);
+          });
       }, []);
 
       return (
@@ -579,11 +612,13 @@
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className={`${project.span} group relative rounded-3xl overflow-hidden border border-stroke aspect-[4/3] md:aspect-auto md:h-[400px] cursor-pointer block`}
+                  className={`${project.span} group relative rounded-3xl overflow-hidden border border-stroke aspect-[4/3] md:aspect-auto md:h-[400px] cursor-pointer block will-change-transform`}
                 >
                   <img
                     src={project.img}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Halftone Overlay */}
@@ -657,6 +692,8 @@
               start: "top top",
               end: "+=1500",
               pin: true,
+              pinSpacing: true,
+              anticipatePin: 1,
               scrub: 1,
             });
 
@@ -702,15 +739,15 @@
           <div className="relative z-10 flex md:grid md:grid-cols-2 flex-col gap-8 md:gap-40 max-w-[1400px] px-4 md:px-6 mt-10">
             <div className="col-left flex flex-col items-center md:items-end gap-8 md:gap-12">
               {images.slice(0, 3).map((src, i) => (
-                <div key={i} className="w-[70vw] sm:w-[200px] md:w-[320px] aspect-square rounded-2xl overflow-hidden border border-stroke/30 rotate-2 md:rotate-3 hover:rotate-0 transition-transform duration-500 cursor-pointer">
-                  <img src={src} className="w-full h-full object-cover" alt="Exploration" />
+                <div key={i} className="w-[70vw] sm:w-[200px] md:w-[320px] aspect-square rounded-2xl overflow-hidden border border-stroke/30 rotate-2 md:rotate-3 hover:rotate-0 transition-transform duration-500 cursor-pointer will-change-transform">
+                  <img src={src} className="w-full h-full object-cover" alt="Achievement" loading="lazy" decoding="async" />
                 </div>
               ))}
             </div>
             <div className="col-right flex flex-col items-center md:items-start gap-8 md:gap-12 pt-0 md:pt-24">
               {images.slice(3, 6).map((src, i) => (
-                <div key={i} className="w-[70vw] sm:w-[200px] md:w-[320px] aspect-square rounded-2xl overflow-hidden border border-stroke/30 -rotate-2 md:-rotate-3 hover:rotate-0 transition-transform duration-500 cursor-pointer">
-                  <img src={src} className="w-full h-full object-cover" alt="Exploration" />
+                <div key={i} className="w-[70vw] sm:w-[200px] md:w-[320px] aspect-square rounded-2xl overflow-hidden border border-stroke/30 -rotate-2 md:-rotate-3 hover:rotate-0 transition-transform duration-500 cursor-pointer will-change-transform">
+                  <img src={src} className="w-full h-full object-cover" alt="Achievement" loading="lazy" decoding="async" />
                 </div>
               ))}
             </div>
@@ -915,6 +952,20 @@
           lenis.raf(time * 1000);
         });
         gsap.ticker.lagSmoothing(0);
+
+        // Optimization: Smooth scroll to anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              lenis.scrollTo(target, {
+                offset: -50,
+                duration: 1.5,
+              });
+            }
+          });
+        });
 
         return () => {
           lenis.destroy();

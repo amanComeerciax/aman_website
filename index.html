@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammad Aman Memon | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- React & ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- GSAP & Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Framer Motion (v6 UMD) -->
+  <script src="https://unpkg.com/framer-motion@6.5.1/dist/framer-motion.js"></script>
+
+  <!-- HLS.js -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <!-- Lenis for Smooth Scrolling -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            body: ['Inter', 'sans-serif'],
+            display: ['Instrument Serif', 'serif'],
+          },
+          colors: {
+            bg: 'hsl(var(--bg))',
+            surface: 'hsl(var(--surface))',
+            'text-primary': 'hsl(var(--text))',
+            muted: 'hsl(var(--muted))',
+            stroke: 'hsl(var(--stroke))',
+          },
+          animation: {
+            'scroll-down': 'scroll-down 1.5s ease-in-out infinite',
+            'role-fade-in': 'role-fade-in 0.4s ease-out forwards',
+            'gradient-shift': 'gradient-shift 6s ease infinite',
+          },
+          keyframes: {
+            'scroll-down': {
+              '0%, 100%': { transform: 'translateY(-100%)' },
+              '50%': { transform: 'translateY(200%)' },
+            },
+            'role-fade-in': {
+              '0%': { opacity: '0', transform: 'translateY(8px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'gradient-shift': {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            },
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg: 0 0% 4%;
+      --surface: 0 0% 8%;
+      --text: 0 0% 96%;
+      --muted: 0 0% 53%;
+      --stroke: 0 0% 12%;
+      --accent: 0 0% 96%;
+    }
+
+    body {
+      background-color: hsl(var(--bg));
+      color: hsl(var(--text));
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(137, 170, 204, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(78, 133, 191, 0.08) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    /* Subtle grid pattern overlay */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+      mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    }
+
+    /* Accent Gradient Utility */
+    .accent-gradient {
+      background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+    }
+
+    /* Gradient Ring Animation */
+    .animate-gradient-shift {
+      background-size: 200% 200%;
+      animation: gradient-shift 6s ease infinite;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: hsl(var(--bg));
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: hsl(var(--stroke));
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--muted));
+    }
+  </style>
+  <style id="__img-align-fix__">
+    /* AUTO-INJECTED: Image Alignment Fix — class-specific only */
+    .gallery-img,
+    .gallery-image,
+    .card-img,
+    .card-image,
+    .card-thumb,
+    .feature-img,
+    .feature-image,
+    .team-img,
+    .team-image,
+    .member-img,
+    .coach-img,
+    .hero-img,
+    .hero-image,
+    .portfolio-img,
+    .portfolio-image,
+    .project-img,
+    .project-image,
+    .blog-img,
+    .blog-image,
+    .post-img,
+    .thumbnail,
+    .thumb,
+    .cover-img,
+    .cover-image,
+    .bg-img,
+    .slide-img,
+    .slider-img,
+    .carousel-img,
+    .profile-img,
+    .profile-image,
+    .section-img,
+    .content-img,
+    .product-img,
+    .product-image,
+    .item-img,
+    .service-img,
+    .service-image,
+    .testimonial-img,
+    .review-img,
+    .g2-item img,
+    .g2-bg img,
+    .prog-card-hero img,
+    .slice-container img,
+    .slice-container-bottom img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+
+    /* SaaS template: .s-img img, .g-img img */
+    .s-img img,
+    .g-img img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+
+    /* Bento card image */
+    .bc-img {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+
+    /* Avatar images — cover but don't force height (container controls it) */
+    .avatar img,
+    .av,
+    .user-av,
+    .author-img {
+      object-fit: cover !important;
+      display: block !important;
+    }
+
+    /* Sponsor/logo grids — contain (not cover) so logos aren't cropped */
+    .sp2-item img,
+    .sponsor-item img,
+    .partner-item img,
+    .logo-grid img,
+    .brand-grid img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      display: block !important;
+    }
+
+    /* Coach avatar inside its 80x80 circle container */
+    .coach-av>img,
+    .test-av>img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      border-radius: 50% !important;
+      display: block !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+    const { motion, AnimatePresence } = window['framer-motion'] || window.Motion || {};
+
+    // --- Utility Components ---
+
+    const AccentBorder = ({ children, className = "", ringOnHover = false }) => {
+      return (
+        <div className={`relative rounded-full group ${className}`}>
+          {ringOnHover && (
+            <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-[1px]"></span>
+          )}
+          <div className={`relative bg-surface border border-stroke/50 rounded-full backdrop-blur-md group-hover:border-transparent transition-colors duration-300`}>
+            {children}
+          </div>
+        </div>
+      );
+    };
+
+    // --- Section 1: Loading Screen ---
+    const LoadingScreen = ({ onComplete }) => {
+      const [count, setCount] = useState(0);
+      const [wordIndex, setWordIndex] = useState(0);
+      const words = ["Design", "Create", "Inspire"];
+
+      useEffect(() => {
+        // Word cycling
+        const wordInterval = setInterval(() => {
+          setWordIndex((prev) => (prev + 1) % words.length);
+        }, 900);
+
+        // Counting animation
+        const startTime = Date.now();
+        const duration = 2700;
+
+        const frame = () => {
+          const elapsed = Date.now() - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          setCount(Math.floor(progress * 100));
+
+          if (progress < 1) {
+            requestAnimationFrame(frame);
+          } else {
+            setTimeout(onComplete, 400); // Delay after complete
+          }
+        };
+        requestAnimationFrame(frame);
+
+        return () => clearInterval(wordInterval);
+      }, [onComplete]);
+
+      return (
+        <div className="fixed inset-0 z-[9999] bg-bg flex flex-col justify-between p-6 md:p-10 lg:p-16">
+          {/* Top Left */}
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="text-xs text-muted uppercase tracking-[0.3em]"
+          >
+            Portfolio
+          </motion.div>
+
+          {/* Center Rotating Words */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+            <AnimatePresence mode="wait">
+              <motion.h1
+                key={words[wordIndex]}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 0.8 }}
+                exit={{ y: -20, opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-4xl md:text-6xl lg:text-7xl font-display italic text-text-primary/80"
+              >
+                {words[wordIndex]}
+              </motion.h1>
+            </AnimatePresence>
+          </div>
+
+          {/* Bottom Right Counter & Progress */}
+          <div className="flex flex-col items-end">
+            <div className="text-6xl md:text-8xl lg:text-9xl font-display tabular-nums text-text-primary mb-4">
+              {String(count).padStart(3, "0")}
+            </div>
+            <div className="w-full max-w-[200px] h-[3px] bg-stroke/50 relative overflow-hidden">
+              <motion.div
+                className="absolute inset-y-0 left-0 accent-gradient shadow-[0_0_8px_rgba(137,170,204,0.35)]"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: count / 100 }}
+                style={{ transformOrigin: 'left' }}
+              />
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    // --- Section 2: Hero ---
+    const Hero = () => {
+      const videoRef = useRef(null);
+      const titleRef = useRef(null);
+      const eyebrowRef = useRef(null);
+      const containerRef = useRef(null);
+
+      useEffect(() => {
+        const video = videoRef.current;
+        if (Hls.isSupported()) {
+          const hls = new Hls();
+          hls.loadSource('https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8');
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED, () => {
+            video.play().catch(e => console.log("Autoplay blocked", e));
+          });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          video.src = 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8';
+          video.addEventListener('loadedmetadata', () => {
+            video.play().catch(e => console.log("Autoplay blocked", e));
+          });
+        }
+
+        // GSAP Entrance
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+        tl.fromTo(titleRef.current,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 1.2, delay: 0.1 }
+        )
+          .fromTo(eyebrowRef.current,
+            { opacity: 0, filter: "blur(10px)", y: 20 },
+            { opacity: 1, filter: "blur(0px)", y: 0, duration: 1 },
+            "-=1"
+          );
+
+      }, []);
+
+      const roles = ["Full Stack Developer", "Software Engineer", "Freelancer", "Creator"];
+      const [roleIndex, setRoleIndex] = useState(0);
+
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setRoleIndex((prev) => (prev + 1) % roles.length);
+        }, 2000);
+        return () => clearInterval(interval);
+      }, []);
+
+      return (
+        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+          {/* Background Video */}
+          <div className="absolute inset-0 z-0">
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/20"></div>
+          </div>
+
+          {/* Bottom Fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-bg to-transparent z-10 pointer-events-none"></div>
+
+          {/* Navbar */}
+          <Navbar />
+
+          {/* Hero Content */}
+          <div ref={containerRef} className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <motion.div
+              ref={eyebrowRef}
+              className="blur-in text-xs text-muted uppercase tracking-[0.3em] mb-8"
+            >
+              Portfolio '26
+            </motion.div>
+
+            <h1 ref={titleRef} className="name-reveal text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text-primary mb-6 break-words">
+              Mohammad Aman Memon
+            </h1>
+
+            <p className="text-lg md:text-xl text-muted max-w-md mx-auto mb-12">
+              A {" "}
+              <span key={roleIndex} className="font-display italic text-text-primary animate-role-fade-in inline-block">
+                {roles[roleIndex]}
+              </span>
+              {" "} available for freelance & collaboration.
+            </p>
+
+            <p className="text-sm md:text-base text-muted max-w-md mx-auto mb-12 opacity-80">
+              Software engineering = managing complexity. Building maintainable architecture with a performance-first mindset.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="#work" className="relative px-7 py-3.5 rounded-full text-sm bg-text-primary text-bg hover:bg-bg hover:text-text-primary transition-all duration-300 overflow-hidden group">
+                <span className="relative z-10">See Works</span>
+                <div className="absolute inset-0 accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </a>
+
+              <a href="mailto:amanmemon0014@gmail.com" className="px-7 py-3.5 rounded-full text-sm border-2 border-stroke bg-bg text-text-primary hover:border-transparent transition-all duration-300 group relative overflow-hidden">
+                <span className="relative z-10 flex items-center gap-2">
+                  Reach out... <span className="text-lg leading-none">↗</span>
+                </span>
+                <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 blur-[1px] transition-opacity"></span>
+              </a>
+            </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4">
+            <span className="text-[10px] text-muted uppercase tracking-[0.2em]">Scroll</span>
+            <div className="w-px h-10 bg-stroke relative overflow-hidden">
+              <div className="absolute inset-0 w-full h-1/2 bg-text-primary/50 animate-scroll-down"></div>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    const Navbar = () => {
+      const [scrolled, setScrolled] = useState(false);
+
+      useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 100);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      return (
+        <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-2 sm:px-4 transition-all duration-500 ${scrolled ? 'pt-2' : ''}`}>
+          <div className={`flex items-center justify-between sm:justify-center w-full max-w-[360px] sm:max-w-max sm:inline-flex rounded-full backdrop-blur-md border border-white/10 bg-surface px-1.5 sm:px-2 py-1.5 sm:py-2 transition-all duration-300 ${scrolled ? 'shadow-md shadow-black/10 scale-95' : ''}`}>
+            {/* Logo */}
+            <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full accent-gradient p-[1px] hover:rotate-180 transition-transform duration-700">
+              <div className="w-full h-full rounded-full bg-bg flex items-center justify-center">
+                <span className="font-display italic text-[11px] sm:text-[13px] text-text-primary">MA</span>
+              </div>
+            </div>
+
+            <div className="w-px h-5 bg-stroke mx-1 hidden sm:block"></div>
+
+            {/* Nav Links */}
+            <div className="flex items-center gap-1">
+              {[
+                { name: "Home", href: "#" },
+                { name: "Work", href: "#work" },
+                { name: "Resume", href: "./resume/Mo.Amaan_CV2%202.pdf", target: "_blank" }
+              ].map((item) => (
+                <a key={item.name} href={item.href} target={item.target} className="text-[11px] sm:text-sm rounded-full px-2 sm:px-4 py-1.5 sm:py-2 text-muted hover:text-text-primary hover:bg-stroke/50 transition-colors whitespace-nowrap">
+                  {item.name}
+                </a>
+              ))}
+            </div>
+
+            <div className="w-px h-5 bg-stroke mx-1 hidden sm:block"></div>
+
+            {/* Say Hi */}
+            <a href="mailto:amanmemon0014@gmail.com" className="relative text-[11px] sm:text-sm rounded-full px-2 sm:px-4 py-1.5 sm:py-2 text-muted hover:text-text-primary transition-colors group overflow-visible whitespace-nowrap">
+              <span className="relative z-10 flex items-center gap-1">Say hi ↗</span>
+              <span className="absolute inset-0 rounded-full accent-gradient opacity-0 group-hover:opacity-100 blur-[1px] transition-opacity"></span>
+            </a>
+          </div>
+        </nav>
+      );
+    };
+
+    // --- Section 3: Selected Works ---
+    const SelectedWorks = () => {
+      const projects = [
+        { 
+          title: "AI Upsell Engine", 
+          span: "md:col-span-8", 
+          img: "./images/upsell.png",
+          desc: "Intelligent upselling platform for modern businesses.",
+          stack: "Next.js, React, AI",
+          link: "https://aiupsellengine1.vercel.app/"
+        },
+        { 
+          title: "AI Website Builder", 
+          span: "md:col-span-4", 
+          img: "./images/websitebuilder.png",
+          desc: "Multi-model AI routing & dynamic Next.js generation.",
+          stack: "TypeScript, AI Models",
+          link: "https://ai-website-builder-blue.vercel.app/"
+        },
+        { 
+          title: "PDF Analyzer", 
+          span: "md:col-span-4", 
+          img: "./images/pdfanalyzer.png",
+          desc: "AI-powered document analysis and insight extraction.",
+          stack: "Python, Next.js, OpenAI",
+          link: "https://glamourpdfanalyzer.vercel.app/"
+        },
+        { 
+          title: "MyTube Platform", 
+          span: "md:col-span-8", 
+          img: "./images/mytube.png",
+          desc: "Feature-rich video streaming platform clone.",
+          stack: "React, Node.js, API",
+          link: "https://mytube-gold-delta.vercel.app/"
+        },
+        { 
+          title: "SIS Landing Page", 
+          span: "md:col-span-6", 
+          img: "./images/sis.png",
+          desc: "High-performance landing page for enterprise systems.",
+          stack: "React, Tailwind",
+          link: "https://sis-landing-page.vercel.app/"
+        },
+        { 
+          title: "Personal Portfolio", 
+          span: "md:col-span-6", 
+          img: "./images/portfolio.png",
+          desc: "Premium personal portfolio showcasing my engineering work.",
+          stack: "React, Tailwind, Framer",
+          link: "https://mohammad-aman-memon-portfolio.vercel.app/"
+        }
+      ];
+
+      return (
+        <section id="work" className="bg-transparent py-12 md:py-16">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+            {/* Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6"
+            >
+              <div>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-8 h-px bg-stroke"></div>
+                  <span className="text-xs text-muted uppercase tracking-[0.3em]">Selected Work</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-body">
+                  Featured <span className="font-display italic text-text-primary">projects</span>
+                </h2>
+                <p className="text-muted mt-2 max-w-md">A selection of projects I've worked on, from concept to launch.</p>
+              </div>
+              <button className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full border border-stroke/50 text-sm text-text-primary hover:border-transparent hover:shadow-[0_0_15px_rgba(137,170,204,0.3)] transition-all group relative overflow-hidden">
+                <span className="relative z-10">View all work</span>
+                <span className="absolute inset-0 accent-gradient opacity-0 group-hover:opacity-20 transition-opacity"></span>
+              </button>
+            </motion.div>
+
+            {/* Bento Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
+              {projects.map((project, i) => (
+                <motion.a
+                  key={i}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className={`${project.span} group relative rounded-3xl overflow-hidden border border-stroke aspect-[4/3] md:aspect-auto md:h-[400px] cursor-pointer block`}
+                >
+                  <img
+                    src={project.img}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Halftone Overlay */}
+                  <div className="absolute inset-0 opacity-20 mix-blend-multiply" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
+
+                  {/* Hover Content */}
+                  <div className="absolute inset-0 bg-bg/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center">
+                    <h3 className="text-2xl font-display italic text-white mb-2">{project.title}</h3>
+                    <p className="text-sm text-white/80 mb-4">{project.desc}</p>
+                    <div className="px-4 py-2 bg-white text-bg rounded-full text-xs font-bold shadow-lg">
+                      {project.stack}
+                    </div>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // --- Section 4: Core Skills ---
+    const CoreSkills = () => {
+      const skills = [
+        { category: "Backend", items: "Node.js, Express, MongoDB, Mongoose, PostgreSQL, Prisma" },
+        { category: "Frontend", items: "React, Next.js, TypeScript, Tailwind CSS" },
+        { category: "DevOps & Tools", items: "Docker, Git, GitHub, AWS, Vercel" },
+        { category: "Competencies", items: "REST APIs, Auth, DB Design, CI/CD" },
+      ];
+
+      return (
+        <section className="bg-transparent py-16 md:py-24">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+              <div>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-8 h-px bg-stroke"></div>
+                  <span className="text-xs text-muted uppercase tracking-[0.3em]">Expertise</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-body">
+                  Core <span className="font-display italic text-text-primary">Skills</span>
+                </h2>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {skills.map((skill, i) => (
+                <div key={i} className="flex flex-col gap-2 p-6 rounded-3xl bg-surface/30 border border-stroke hover:border-stroke/80 transition-all duration-300">
+                  <h4 className="text-lg font-medium text-text-primary">{skill.category}</h4>
+                  <p className="text-sm text-muted">{skill.items}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // --- Section 5: Explorations (Parallax) ---
+    const Explorations = () => {
+      const pinRef = useRef(null);
+
+      useEffect(() => {
+        const ctx = gsap.context(() => {
+          let mm = gsap.matchMedia();
+
+          mm.add("(min-width: 768px)", () => {
+            // Pin the section
+            ScrollTrigger.create({
+              trigger: pinRef.current,
+              start: "top top",
+              end: "+=1500",
+              pin: true,
+              scrub: 1,
+            });
+
+            // Parallax columns
+            gsap.to(".col-left", {
+              y: -300,
+              ease: "none",
+              scrollTrigger: {
+                trigger: pinRef.current,
+                start: "top top",
+                end: "bottom top",
+                scrub: 1
+              }
+            });
+
+            gsap.fromTo(".col-right",
+              { y: -300 },
+              { y: 0, ease: "none", scrollTrigger: { trigger: pinRef.current, start: "top top", end: "bottom top", scrub: 1 } }
+            );
+          });
+        }, pinRef);
+        return () => ctx.revert();
+      }, []);
+
+      const images = [
+        "./images/25f406e2-871e-4cf3-9f89-08d82e3d9859%202.JPG",
+        "./images/IMG_5372.jpg",
+        "./images/IMG_6604.jpg",
+        "./images/IMG_6610.jpg",
+        "./images/23d70b24-90a1-4a53-b075-e7653c77749e.jpg"
+      ];
+
+      return (
+        <section ref={pinRef} className="relative min-h-screen w-full bg-transparent overflow-hidden flex flex-col justify-center items-center">
+          {/* Content */}
+          <div className="relative z-20 text-center px-4 mb-20 pointer-events-none">
+            <p className="text-accent-gradient text-sm font-bold uppercase tracking-widest mb-4">Milestones</p>
+            <h2 className="text-5xl md:text-7xl font-display italic">Personal <span className="text-text-primary">Achievements</span></h2>
+            <p className="text-muted max-w-md mx-auto mt-4">A glimpse into my journey, team events, and proudest moments.</p>
+          </div>
+
+          {/* Parallax Grid */}
+          <div className="relative z-10 flex md:grid md:grid-cols-2 flex-col gap-8 md:gap-40 max-w-[1400px] px-4 md:px-6 mt-10">
+            <div className="col-left flex flex-col items-center md:items-end gap-8 md:gap-12">
+              {images.slice(0, 3).map((src, i) => (
+                <div key={i} className="w-[70vw] sm:w-[200px] md:w-[320px] aspect-square rounded-2xl overflow-hidden border border-stroke/30 rotate-2 md:rotate-3 hover:rotate-0 transition-transform duration-500 cursor-pointer">
+                  <img src={src} className="w-full h-full object-cover" alt="Exploration" />
+                </div>
+              ))}
+            </div>
+            <div className="col-right flex flex-col items-center md:items-start gap-8 md:gap-12 pt-0 md:pt-24">
+              {images.slice(3, 6).map((src, i) => (
+                <div key={i} className="w-[70vw] sm:w-[200px] md:w-[320px] aspect-square rounded-2xl overflow-hidden border border-stroke/30 -rotate-2 md:-rotate-3 hover:rotate-0 transition-transform duration-500 cursor-pointer">
+                  <img src={src} className="w-full h-full object-cover" alt="Exploration" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // --- Section 6: Stats ---
+    const StatItem = ({ stat }) => {
+      const numRef = useRef(null);
+      
+      useEffect(() => {
+        if (typeof stat.value === "number" && numRef.current) {
+          let ctx = gsap.context(() => {
+            gsap.fromTo(numRef.current, 
+              { innerHTML: 0 },
+              { 
+                innerHTML: stat.value, 
+                duration: 2.5, 
+                snap: { innerHTML: 1 }, 
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: numRef.current,
+                  start: "top 85%"
+                }
+              }
+            );
+          }, numRef);
+          return () => ctx.revert();
+        }
+      }, [stat]);
+
+      return (
+        <div>
+          <h3 className="text-5xl md:text-6xl font-display italic text-text-primary mb-2">
+            {typeof stat.value === "number" ? <span ref={numRef}>0</span> : stat.value}
+            <span className="text-accent-gradient">{stat.suffix}</span>
+          </h3>
+          <p className="text-muted uppercase tracking-widest text-xs">{stat.label}</p>
+        </div>
+      );
+    };
+
+    const Stats = () => {
+      const stats = [
+        { value: 14, suffix: "+", label: "Projects Built" },
+        { value: 16, suffix: "+", label: "Technologies" },
+        { value: "Active", suffix: "", label: "Open Source Contributor" },
+      ];
+
+      return (
+        <section className="bg-transparent py-16 md:py-24 border-t border-stroke/30">
+          <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            {stats.map((stat, i) => (
+              <StatItem key={i} stat={stat} />
+            ))}
+          </div>
+        </section>
+      );
+    };
+
+    // --- Section 7: Footer ---
+    const Footer = () => {
+      const marqueeRef = useRef(null);
+      const videoRef = useRef(null);
+
+      useEffect(() => {
+        // Initialize HLS for footer video
+        if (Hls.isSupported() && videoRef.current) {
+          const hls = new Hls();
+          hls.loadSource('https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8');
+          hls.attachMedia(videoRef.current);
+          hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            videoRef.current.play();
+          });
+        } else if (videoRef.current && videoRef.current.canPlayType('application/vnd.apple.mpegurl')) {
+          videoRef.current.src = 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8';
+          videoRef.current.addEventListener('loadedmetadata', function () {
+            videoRef.current.play();
+          });
+        }
+
+        gsap.to(marqueeRef.current, {
+          xPercent: -50,
+          repeat: -1,
+          duration: 40,
+          ease: "none"
+        });
+      }, []);
+
+      return (
+        <footer className="relative bg-bg pt-20 pb-24 md:pb-12 overflow-hidden">
+          {/* Video Background (Flipped) */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none scale-y-[-1] z-0">
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute top-0 left-0 w-full h-[100vh] object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40"></div>
+          </div>
+
+          <div className="relative z-10 flex flex-col items-center">
+            {/* Marquee */}
+            <div className="overflow-hidden w-full whitespace-nowrap mb-16 mask-linear-fade">
+              <div ref={marqueeRef} className="inline-block">
+                <span className="text-6xl md:text-9xl font-display italic text-text-primary/20 mx-4">
+                  BUILDING THE FUTURE •
+                </span>
+                <span className="text-6xl md:text-9xl font-display italic text-text-primary/20 mx-4">
+                  BUILDING THE FUTURE •
+                </span>
+                <span className="text-6xl md:text-9xl font-display italic text-text-primary/20 mx-4">
+                  BUILDING THE FUTURE •
+                </span>
+                <span className="text-6xl md:text-9xl font-display italic text-text-primary/20 mx-4">
+                  BUILDING THE FUTURE •
+                </span>
+                <span className="text-6xl md:text-9xl font-display italic text-text-primary/20 mx-4">
+                  BUILDING THE FUTURE •
+                </span>
+                {/* Duplicate for seamless loop */}
+                <span className="text-6xl md:text-9xl font-display italic text-text-primary/20 mx-4">
+                  BUILDING THE FUTURE •
+                </span>
+                <span className="text-6xl md:text-9xl font-display italic text-text-primary/20 mx-4">
+                  BUILDING THE FUTURE •
+                </span>
+                <span className="text-6xl md:text-9xl font-display italic text-text-primary/20 mx-4">
+                  BUILDING THE FUTURE •
+                </span>
+                <span className="text-6xl md:text-9xl font-display italic text-text-primary/20 mx-4">
+                  BUILDING THE FUTURE •
+                </span>
+                <span className="text-6xl md:text-9xl font-display italic text-text-primary/20 mx-4">
+                  BUILDING THE FUTURE •
+                </span>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <a
+              href="mailto:amanmemon0014@gmail.com"
+              className="relative inline-block px-10 py-5 rounded-full text-xl md:text-2xl font-medium text-text-primary border border-stroke/50 hover:border-transparent transition-all group mb-16"
+            >
+              <span className="relative z-10">Let's build something great</span>
+              <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity blur-[2px]"></span>
+            </a>
+
+            {/* Footer Bar */}
+            <div className="w-full max-w-[1200px] px-6 border-t border-stroke/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+              <div className="flex items-center gap-6 text-sm text-text-primary/70">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                Available for projects
+              </div>
+              <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-4 md:mt-0">
+                {[
+                  { name: 'Email', url: 'mailto:amanmemon0014@gmail.com' },
+                  { name: 'Phone', url: 'tel:+919265588226' },
+                  { name: 'GitHub', url: 'https://github.com/amanComeerciax' },
+                  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/mohammad-aman-memon/' }
+                ].map(social => (
+                  <a key={social.name} href={social.url} target={social.name !== 'Email' ? '_blank' : undefined} rel={social.name !== 'Email' ? 'noopener noreferrer' : undefined} className="text-sm text-text-primary/70 hover:text-white transition-colors">{social.name}</a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </footer>
+      );
+    };
+
+    // --- Main App ---
+    const App = () => {
+      const [isLoading, setIsLoading] = useState(true);
+
+      useEffect(() => {
+        const lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          direction: 'vertical',
+          gestureDirection: 'vertical',
+          smooth: true,
+          mouseMultiplier: 1,
+          smoothTouch: false,
+          touchMultiplier: 2,
+        });
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        // Sync with GSAP ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+
+        return () => {
+          lenis.destroy();
+        };
+      }, []);
+
+      return (
+        <>
+          {/* Global Background Effects */}
+          <div className="fixed inset-0 pointer-events-none z-0 bg-grid opacity-70"></div>
+
+          {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+
+          <div className={`relative z-10 transition-opacity duration-700 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+            <Hero />
+            <SelectedWorks />
+            <CoreSkills />
+            <Explorations />
+            <Stats />
+            <Footer />
+          </div>
+        </>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+
+</html>

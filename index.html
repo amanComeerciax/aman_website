@@ -507,56 +507,14 @@
 
     // --- Section 3: Selected Works ---
     const SelectedWorks = () => {
-      const projects = [
-        { 
-          title: "AI Upsell Engine", 
-          span: "md:col-span-8", 
-          img: "./images/upsell.png",
-          desc: "Intelligent upselling platform for modern businesses.",
-          stack: "Next.js, React, AI",
-          link: "https://aiupsellengine1.vercel.app/"
-        },
-        { 
-          title: "AI Website Builder", 
-          span: "md:col-span-4", 
-          img: "./images/websitebuilder.png",
-          desc: "Multi-model AI routing & dynamic Next.js generation.",
-          stack: "TypeScript, AI Models",
-          link: "https://ai-website-builder-blue.vercel.app/"
-        },
-        { 
-          title: "PDF Analyzer", 
-          span: "md:col-span-4", 
-          img: "./images/pdfanalyzer.png",
-          desc: "AI-powered document analysis and insight extraction.",
-          stack: "Python, Next.js, OpenAI",
-          link: "https://glamourpdfanalyzer.vercel.app/"
-        },
-        { 
-          title: "MyTube Platform", 
-          span: "md:col-span-8", 
-          img: "./images/mytube.png",
-          desc: "Feature-rich video streaming platform clone.",
-          stack: "React, Node.js, API",
-          link: "https://mytube-gold-delta.vercel.app/"
-        },
-        { 
-          title: "SIS Landing Page", 
-          span: "md:col-span-6", 
-          img: "./images/sis.png",
-          desc: "High-performance landing page for enterprise systems.",
-          stack: "React, Tailwind",
-          link: "https://sis-landing-page.vercel.app/"
-        },
-        { 
-          title: "Personal Portfolio", 
-          span: "md:col-span-6", 
-          img: "./images/portfolio.png",
-          desc: "Premium personal portfolio showcasing my engineering work.",
-          stack: "React, Tailwind, Framer",
-          link: "https://mohammad-aman-memon-portfolio.vercel.app/"
-        }
-      ];
+      const [projects, setProjects] = useState([]);
+
+      useEffect(() => {
+        fetch('./projects.json')
+          .then(res => res.json())
+          .then(data => setProjects(data))
+          .catch(err => console.error("Error fetching projects:", err));
+      }, []);
 
       return (
         <section id="work" className="bg-transparent py-12 md:py-16">

@@ -29,7 +29,7 @@
     "img": "./images/mytube.png",
     "desc": "Feature-rich video streaming platform clone.",
     "stack": "React, Node.js, API",
-    "link": "https://mytube.mohammadaman.in/"
+    "link": "https://mytube-gold-delta.vercel.app/"
   },
   {
     "title": "SIS Landing Page",

@@ -113,11 +113,10 @@ const Particles = ({
           p.y = Math.floor(Math.random() * containerSize.current.h);
         }
 
-        context.beginPath();
-        context.arc(p.x, p.y, p.size, 0, 2 * Math.PI);
         context.fillStyle = color;
         context.globalAlpha = p.alpha;
-        context.fill();
+        // Optimization: fillRect is faster than arc for tiny particles
+        context.fillRect(p.x, p.y, p.size, p.size);
       });
     }
   };

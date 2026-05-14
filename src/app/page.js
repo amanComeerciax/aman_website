@@ -13,7 +13,9 @@ import CoreSkills from "@/components/CoreSkills";
 import Explorations from "@/components/Explorations";
 import Certificates from "@/components/Certificates";
 import Stats from "@/components/Stats";
+import Education from "@/components/Education";
 import Footer from "@/components/Footer";
+import Experience from "@/components/Experience";
 import ScrollMorphHero from "@/components/ui/ScrollMorphHero";
 import UiloraBiolumeGrain from "@/components/Backgrounds/UiloraBiolumeGrain";
 import Particles from "@/components/ui/Particles";
@@ -24,12 +26,18 @@ export default function Home() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: 'vertical',
       gestureDirection: 'vertical',
-      smooth: true,
+      smooth: true, // Enable smooth scroll for all devices
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
     });
 
     lenis.on('scroll', ScrollTrigger.update);
@@ -48,8 +56,9 @@ export default function Home() {
         const target = document.querySelector(href);
         if (target) {
           lenis.scrollTo(target, {
-            offset: -50,
+            offset: -80, // Account for fixed navbar
             duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           });
         }
       }
@@ -84,7 +93,7 @@ export default function Home() {
 
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       <Particles 
-        particleCount={300}
+        particleCount={100}
         color="#00d1b2"
         speed={0.5}
         staticity={30}
@@ -94,8 +103,10 @@ export default function Home() {
         <RiveHero />
         <SelectedWorks />
         <CoreSkills />
+        <Experience />
         <Explorations />
         <Certificates />
+        <Education />
         <Stats />
         <ScrollMorphHero />
         <Footer />

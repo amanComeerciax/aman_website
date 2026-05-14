@@ -53,7 +53,7 @@ const Footer = () => {
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 flex flex-col items-center text-center">
         
         {/* Social Links Container */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6 w-full max-w-3xl pt-8">
+        <div ref={textRef} className="flex flex-wrap justify-center gap-4 md:gap-6 w-full max-w-3xl pt-8">
           {socials.map((social, index) => (
             <a
               key={social.name}

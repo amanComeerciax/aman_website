@@ -102,8 +102,18 @@ const UiloraBiolumeGrain = ({
 
     useEffect(() => {
         if (!containerRef.current) return;
-        const renderer = new Renderer({ alpha: true, antialias: true });
+        
+        let renderer;
+        try {
+            renderer = new Renderer({ alpha: true, antialias: true });
+        } catch (e) {
+            console.warn("WebGL not supported, biolume background disabled.");
+            return;
+        }
+
         const gl = renderer.gl;
+        if (!gl) return;
+        
         containerRef.current.appendChild(gl.canvas);
 
         const geometry = new Geometry(gl, {
@@ -130,8 +140,10 @@ const UiloraBiolumeGrain = ({
 
         const resize = () => {
             if (!containerRef.current) return;
+            const dpr = Math.min(window.devicePixelRatio, 1.5); // Cap DPR for performance
+            renderer.dpr = dpr * 0.75; // Correct property for OGL
             renderer.setSize(window.innerWidth, window.innerHeight);
-            program.uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
+            program.uniforms.uResolution.value.set(gl.canvas.width, gl.canvas.height);
         };
         window.addEventListener('resize', resize);
         resize();

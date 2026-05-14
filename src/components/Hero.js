@@ -77,7 +77,7 @@ const Hero = () => {
           Portfolio '26
         </motion.div>
 
-        <h1 ref={titleRef} className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text-primary mb-6 break-words">
+        <h1 ref={titleRef} className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display italic leading-[1.1] md:leading-[0.9] tracking-tight text-text-primary mb-6">
           Mohammad Aman Memon
         </h1>
 

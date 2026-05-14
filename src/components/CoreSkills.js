@@ -26,7 +26,7 @@ const CoreSkills = () => {
   ];
 
   return (
-    <section className="bg-transparent py-12 md:py-16 overflow-hidden relative flex flex-col justify-center">
+    <section id="skills" className="bg-transparent py-12 md:py-16 overflow-hidden relative flex flex-col justify-center">
       <div className="max-w-[1400px] w-full mx-auto px-6 md:px-10 lg:px-16 relative z-10 flex-1 flex flex-col">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
           <div>

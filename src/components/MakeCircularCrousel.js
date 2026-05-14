@@ -27,7 +27,8 @@ export default function MakeCircularCrousel(props) {
   }
 
   const isStatic = false; // Mapped from useIsStaticRenderer
-  const [rotation, setRotation] = useState(0);
+  const rotationRef = useRef(0);
+  const containerContainerRef = useRef(null);
   const [dimensions, setDimensions] = useState({
     radius: radius,
     itemWidth: itemWidth,
@@ -85,7 +86,10 @@ export default function MakeCircularCrousel(props) {
       const dx = e.clientX - lastX.current;
       lastX.current = e.clientX;
       velocity.current = dx * 0.5;
-      setRotation(r => r + dx * 0.5);
+      rotationRef.current += dx * 0.5;
+      if (containerContainerRef.current) {
+        containerContainerRef.current.style.transform = `rotateY(${rotationRef.current}deg)`;
+      }
     }
     function onPointerUp() {
       dragging.current = false;
@@ -120,7 +124,10 @@ export default function MakeCircularCrousel(props) {
       }
       
       if (delta !== 0) {
-        setRotation(r => r + delta);
+        rotationRef.current += delta;
+        if (containerContainerRef.current) {
+          containerContainerRef.current.style.transform = `rotateY(${rotationRef.current}deg)`;
+        }
       }
 
       raf.current = requestAnimationFrame(animate);
@@ -152,13 +159,14 @@ export default function MakeCircularCrousel(props) {
       }}
     >
       <div
+        ref={containerContainerRef}
         style={{
           width: "100%",
           height: "100%",
           position: "absolute",
           transformStyle: "preserve-3d",
           willChange: "transform",
-          transform: `rotateY(${rotation}deg)`
+          transform: `rotateY(${rotationRef.current}deg)`
         }}
       >
         {images.map((img, i) => {

@@ -54,7 +54,7 @@ const Explorations = () => {
   ];
 
   return (
-    <section ref={pinRef} className="relative min-h-screen w-full bg-transparent overflow-hidden flex flex-col justify-center items-center">
+    <section id="explorations" ref={pinRef} className="relative min-h-screen w-full bg-transparent overflow-hidden flex flex-col justify-center items-center">
       {/* Content */}
       <div className="relative z-20 text-center px-4 mb-20 pointer-events-none">
         <p className="text-accent-gradient text-sm font-bold uppercase tracking-widest mb-4">Milestones</p>

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://mohammadaman.in/images/portfolio.png" alt="Mohammad Aman Memon" width="100%" style="border-radius:12px;" />
+
 
 # Mohammad Aman Memon
 ### Full Stack Developer — Available for Freelance & Collaboration
@@ -101,17 +101,7 @@ Currently completing **Integrated MCA from LJ University, Ahmedabad** (2021–20
 
 ---
 
-## 📊 GitHub Stats
 
-<div align="center">
-
-![Aman's GitHub Stats](https://github-readme-stats.vercel.app/api?username=amanComeerciax&show_icons=true&theme=dark&hide_border=true&bg_color=0d0d0d&title_color=ffffff&icon_color=4ade80)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=amanComeerciax&layout=compact&theme=dark&hide_border=true&bg_color=0d0d0d&title_color=ffffff)
-
-![GitHub Streak](https://streak-stats.demolab.com?user=amanComeerciax&theme=dark&hide_border=true&background=0d0d0d&ring=4ade80&fire=4ade80&currStreakLabel=ffffff)
-
-</div>
 
 ---
 

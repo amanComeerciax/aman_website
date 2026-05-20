@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ShinyText from "./ui/ShinyText";
 import { FlippingCard } from "@/components/ui/FlippingCard";
 
 const SelectedWorks = () => {
@@ -52,7 +53,7 @@ const SelectedWorks = () => {
               <span className="text-xs text-muted uppercase tracking-[0.3em]">Selected Work</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-body">
-              Featured <span className="font-display italic text-text-primary">projects</span>
+              Featured <ShinyText text="projects" className="font-display italic" color="#00d1b2" shineColor="#ffffff" speed={3} />
             </h2>
             <p className="text-muted mt-2 max-w-md">A selection of projects I've worked on, from concept to launch.</p>
           </div>

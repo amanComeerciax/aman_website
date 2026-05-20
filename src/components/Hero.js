@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import Hls from "hls.js";
+import ShinyText from "./ui/ShinyText";
 
 const Hero = () => {
   const videoRef = useRef(null);
@@ -77,8 +78,8 @@ const Hero = () => {
           Portfolio '26
         </motion.div>
 
-        <h1 ref={titleRef} className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display italic leading-[1.1] md:leading-[0.9] tracking-tight text-text-primary mb-6">
-          Mohammad Aman Memon
+        <h1 ref={titleRef} className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display italic leading-[1.1] md:leading-[0.9] tracking-tight mb-6">
+          <ShinyText text="Mohammad Aman Memon" color="#f8f9fa" shineColor="#00d1b2" speed={3.5} />
         </h1>
 
         <div className="text-lg md:text-xl text-muted max-w-md mx-auto mb-12">

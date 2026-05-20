@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, animate } from "framer-motion";
+import ShinyText from "./ui/ShinyText";
 
 const Counter = ({ value, color }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -85,7 +86,7 @@ const Education = () => {
           <span className="text-xs text-muted uppercase tracking-[0.4em] font-medium">Learning Journey</span>
         </div>
         <h2 className="text-3xl md:text-5xl font-body text-white">
-          Scholastic <span className="font-display italic text-[#00d1b2]">History</span>
+          Scholastic <ShinyText text="History" className="font-display italic" color="#00d1b2" shineColor="#ffffff" speed={3} />
         </h2>
       </div>
 

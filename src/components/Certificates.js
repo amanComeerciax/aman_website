@@ -2,6 +2,7 @@
 import React from "react";
 import Folder from "./ui/Folder";
 import { motion } from "framer-motion";
+import ShinyText from "./ui/ShinyText";
 
 const Certificates = () => {
   const [isMobile, setIsMobile] = React.useState(false);
@@ -30,7 +31,7 @@ const Certificates = () => {
           <span className="text-xs text-muted uppercase tracking-[0.3em]">Recognition</span>
         </div>
         <h2 className="text-4xl md:text-5xl font-body">
-          Key <span className="font-display italic text-text-primary">Certifications</span>
+          Key <ShinyText text="Certifications" className="font-display italic" color="#00d1b2" shineColor="#ffffff" speed={3} />
         </h2>
       </div>
 

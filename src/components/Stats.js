@@ -33,7 +33,7 @@ const StatItem = ({ stat }) => {
     <div>
       <h3 className="text-5xl md:text-6xl font-display italic text-text-primary mb-2">
         {typeof stat.value === "number" ? <span ref={numRef}>0</span> : stat.value}
-        <span className="text-accent-gradient">{stat.suffix}</span>
+        <span className="text-[#00d1b2]">{stat.suffix}</span>
       </h3>
       <p className="text-muted uppercase tracking-widest text-xs">{stat.label}</p>
     </div>

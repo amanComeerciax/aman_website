@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { motion, useTransform, useSpring, useMotionValue, useScroll } from "framer-motion";
+import ShinyText from "./ShinyText";
 
-// --- FlipCard Component ---
 const IMG_WIDTH = 60;  
 const IMG_HEIGHT = 85; 
 
@@ -121,12 +121,12 @@ function FlipCard({
 // --- Main Hero Component ---
 const TOTAL_IMAGES = 12;
 
-// Mixed Professional 3D Logos (Confirmed SkillIcons)
+// Connect & Tool Logos
 const MIXED_LOGOS = [
-    "react", "nextjs", "python", "nodejs", "mongodb", 
-    "figma", "blender", "ps", "ai", "linkedin", 
-    "github", "js", "ts", "tailwind", "vite", 
-    "vercel", "aws", "docker", "discord", "wordpress"
+    "linkedin", "github", "discord", "gmail", "twitter", 
+    "instagram", "figma", "notion", "stackoverflow", "codepen", 
+    "npm", "vscode", "linux", "apple", "android", 
+    "git", "postman", "docker", "vite", "vercel"
 ].map(skill => `https://skillicons.dev/icons?i=${skill}`);
 
 export default function ScrollMorphHero() {
@@ -196,8 +196,8 @@ export default function ScrollMorphHero() {
                     style={{ opacity: contentOpacity, y: contentY }}
                     className="absolute top-1/2 -translate-y-1/2 z-10 flex flex-col items-center justify-center text-center pointer-events-none px-4"
                 >
-                    <h2 className="text-3xl md:text-5xl font-display italic text-transparent bg-clip-text bg-gradient-to-r from-[#00d1b2] to-cyan-400 tracking-tight mb-4">
-                        Let's Connect With <br /> Mohammad Aman
+                    <h2 className="text-3xl md:text-5xl font-display italic tracking-tight mb-4 text-white">
+                        Let's Connect With <br /> <ShinyText text="Mohammad Aman" color="#00d1b2" shineColor="#ffffff" speed={3} />
                     </h2>
                     <p className="text-sm md:text-base text-white/50 max-w-lg leading-relaxed">
                         Transforming bold ideas into robust digital realities. <br className="hidden md:block" />

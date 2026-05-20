@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import CircularCarousel from "./MakeCircularCrousel";
+import ShinyText from "./ui/ShinyText";
 
 const CoreSkills = () => {
   const skillLogos = [
@@ -35,7 +36,7 @@ const CoreSkills = () => {
               <span className="text-xs text-muted uppercase tracking-[0.3em]">Expertise</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-body">
-              Core <span className="font-display italic text-text-primary">Skills</span>
+              Core <ShinyText text="Skills" className="font-display italic" color="#00d1b2" shineColor="#ffffff" speed={3} />
             </h2>
           </div>
         </div>

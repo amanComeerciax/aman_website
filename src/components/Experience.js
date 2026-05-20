@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, useMotionValue, useTransform, useAnimation } from "framer-motion";
 import DocumentFolder from "./ui/DocumentFolder";
+import ShinyText from "./ui/ShinyText";
 
 const Experience = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,6 @@ const Experience = () => {
   
   const threshold = 100;
   const stringLength = 80;
-  const stringThickness = 2;
 
   const skills = [
     "React.js", "Node.js", "MongoDB", "Express.js", "Docker", 
@@ -32,7 +32,24 @@ const Experience = () => {
     controls.start({ y: 0, transition: { type: "spring", stiffness: 300, damping: 20 } });
   };
 
-  const path = useTransform(y, (yValue) => `M 24 0 L 24 ${stringLength + yValue}`);
+  // Generate Zipper Teeth
+  const renderZipperTeeth = () => {
+    const teeth = [];
+    for (let i = 0; i < 20; i++) {
+      teeth.push(
+        <motion.rect 
+          key={i}
+          x={i % 2 === 0 ? 21 : 25}
+          y={i * 8}
+          width="4"
+          height="2"
+          fill="rgba(0, 209, 178, 0.3)"
+          rx="1"
+        />
+      );
+    }
+    return teeth;
+  };
 
   return (
     <section id="experience" className="py-20 md:py-32 relative font-sans overflow-visible antialiased">
@@ -47,32 +64,29 @@ const Experience = () => {
               <span className="text-sm text-muted uppercase tracking-[0.4em] font-semibold text-white/40">Professional Journey</span>
             </div>
             <h2 className="text-5xl md:text-7xl font-body text-white mb-8 tracking-tight leading-[1.1]">
-              Work <span className="font-display italic text-[#00d1b2]">Experience</span>
+              Work <ShinyText text="Experience" className="font-display italic" color="#00d1b2" shineColor="#ffffff" speed={3} />
             </h2>
             <p className="text-white/50 text-lg md:text-xl leading-relaxed mb-12 max-w-md font-light">
-              Detailed technical history and industrial contributions in modern web engineering.
+              Unzipping industrial experience and full-stack technical mastery.
             </p>
 
-            {/* Pull String Integrated here */}
-            <div className="relative w-12 h-32 flex flex-col items-center">
-              <div className="absolute top-0 w-px h-full bg-white/10 -z-10" />
-              <svg className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-visible">
-                <motion.path 
-                  d={path} 
-                  stroke="rgba(0, 209, 178, 0.8)" 
-                  strokeWidth={stringThickness} 
-                  strokeLinecap="round" 
-                  fill="none" 
-                />
-              </svg>
-              
+            {/* ZIPPER Toggle */}
+            <div className="relative w-12 h-48 flex flex-col items-center">
+              {/* Zipper Track */}
+              <div className="absolute top-0 w-2 h-full bg-white/5 rounded-full overflow-hidden">
+                <svg className="w-full h-full">
+                   {renderZipperTeeth()}
+                </svg>
+              </div>
+
+              {/* Zipper Pull Handle */}
               <motion.div
-                className="pointer-events-auto cursor-grab active:cursor-grabbing absolute flex items-center justify-center backdrop-blur-md rounded-full shadow-2xl border border-[#00d1b2]/60 bg-black/80"
+                className="pointer-events-auto cursor-grab active:cursor-grabbing absolute flex items-center justify-center z-20"
                 style={{ 
                   top: stringLength, 
                   y,
-                  width: 56,
-                  height: 56,
+                  width: 44,
+                  height: 70,
                 }}
                 drag="y"
                 dragConstraints={{ top: 0, bottom: 150 }}
@@ -80,25 +94,57 @@ const Experience = () => {
                 onDragStart={() => setIsDragging(true)}
                 onDragEnd={handleDragEnd}
                 animate={controls}
-                whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(0, 209, 178, 0.4)" }}
-                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.05 }}
               >
-                <motion.div
-                  animate={{ 
-                    rotate: isOpen ? 180 : 0,
-                    color: isOpen ? "#00d1b2" : "#ffffff"
-                  }}
-                  className="flex items-center justify-center"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                    <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-                  </svg>
-                </motion.div>
+                {/* Metallic Zipper Pull Shape */}
+                <div className="relative w-full h-full flex flex-col items-center">
+                   {/* Top slider part */}
+                   <div className="w-10 h-10 bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] border border-[#00d1b2]/40 rounded-lg shadow-xl flex items-center justify-center">
+                      <div className="w-6 h-0.5 bg-[#00d1b2]/30 rounded-full mb-1" />
+                      <div className="w-6 h-0.5 bg-[#00d1b2]/30 rounded-full" />
+                   </div>
+                   {/* Puller part */}
+                   <div className="w-8 h-12 -mt-1 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] border border-[#00d1b2]/60 rounded-b-xl shadow-2xl flex flex-col items-center pt-2">
+                      <div className="w-3 h-5 rounded-full border-2 border-[#00d1b2]/40 mb-1" />
+                      <div className="text-[8px] text-[#00d1b2] font-black uppercase tracking-tighter opacity-70">ZIP</div>
+                   </div>
+                   
+                   {/* Glow effect when near handle */}
+                   <motion.div 
+                     className="absolute -inset-2 bg-[#00d1b2]/10 blur-lg rounded-full -z-10"
+                     animate={{ opacity: [0.3, 0.6, 0.3] }}
+                     transition={{ duration: 2, repeat: Infinity }}
+                   />
+                </div>
               </motion.div>
-              
-              <div className="absolute top-48 left-1/2 -translate-x-1/2 text-center w-full">
-                <p className="text-[10px] uppercase tracking-[0.6em] text-[#00d1b2] font-black">
-                  {isOpen ? "CLOSE" : "OPEN"}
+
+              {/* ISHARA (Visual Guide) */}
+              <AnimatePresence>
+                {!isOpen && !isDragging && (
+                  <motion.div 
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    className="absolute left-16 top-[100px] flex items-center gap-3 whitespace-nowrap pointer-events-none"
+                  >
+                    <motion.div
+                      animate={{ y: [0, 10, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                      className="text-[#00d1b2]"
+                    >
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                        <polyline points="19 6 12 13 5 6"></polyline>
+                      </svg>
+                    </motion.div>
+                    <span className="text-[11px] font-bold text-[#00d1b2] tracking-[0.2em] uppercase">Unzip to View</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <div className="absolute top-56 left-1/2 -translate-x-1/2 text-center w-full">
+                <p className="text-[9px] uppercase tracking-[0.5em] text-[#00d1b2]/60 font-black">
+                  {isOpen ? "ZIP_UP" : "UNZIP_FILE"}
                 </p>
               </div>
             </div>
@@ -111,11 +157,9 @@ const Experience = () => {
                   className="flex-1 overflow-y-auto pr-3 custom-scrollbar relative bg-white"
                   data-lenis-prevent="true"
                 >
-                   {/* Removed texture for maximum clarity */}
                    <div className="relative z-10 py-2">
                       <div className="mb-10 relative">
                          <p className="text-[11px] font-mono text-[#00d1b2] font-bold uppercase tracking-[0.2em] mb-2">Subject_Role_01</p>
-                         {/* Changed to sharp sans-serif for clarity */}
                          <h4 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-2 tracking-tighter antialiased">
                            Full Stack Developer Trainee
                          </h4>

@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
 
-## Getting Started
+# 👋 Hi, I'm Mohammad Aman Memon
 
-First, run the development server:
+### Full Stack Developer | React · Next.js · AI Integrations
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-mohammadaman.in-black?style=for-the-badge)](https://www.mohammadaman.in)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/mohammad-aman-memon)
+[![Email](https://img.shields.io/badge/Email-Contact_Me-red?style=for-the-badge&logo=gmail)](mailto:amanmemon0014@gmail.com)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+</div>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 About Me
 
-## Learn More
+I'm a **Full Stack Developer** specializing in building modern, animated, and AI-powered web applications. Currently pursuing **Integrated MCA from LJ University, Ahmedabad** (2021–2026).
 
-To learn more about Next.js, take a look at the following resources:
+- 🏢 Ex-Trainee at **Commerciax Infotech Pvt. Ltd.** — built production-level MERN stack apps
+- 🤖 Passionate about **AI integrations** in web apps
+- 🎨 Love building **creative, animated UIs** with Framer Motion
+- 📍 Based in **Ahmedabad, Gujarat, India**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack
 
-## Deploy on Vercel
+**Frontend**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=flat&logo=framer&logoColor=white)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Backend**
+
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white)
+
+**DevOps & Tools**
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazon-aws&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
+
+---
+
+## 🔥 Featured Projects
+
+| Project | Description | Tech |
+|--------|-------------|------|
+| 🤖 **AI Upsell Engine** | AI-powered product recommendation system | Next.js, OpenAI, Node.js |
+| 🏗️ **AI Website Builder** | Drag & drop website builder with AI assistance | React, AI APIs |
+| 📄 **PDF Analyzer** | Upload and chat with any PDF document | Next.js, LangChain |
+| 🎬 **MyTube Platform** | YouTube clone with full video streaming | MERN Stack |
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+
+![Aman's GitHub Stats](https://github-readme-stats.vercel.app/api?username=amanComeerciax&show_icons=true&theme=dark&hide_border=true)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=amanComeerciax&layout=compact&theme=dark&hide_border=true)
+
+</div>
+
+---
+
+## 📫 Let's Connect
+
+Got a project in mind or want to hire me?
+
+- 🌐 **Portfolio:** [mohammadaman.in](https://www.mohammadaman.in)
+- 📧 **Email:** amanmemon0014@gmail.com
+- 💼 **Fiverr:** Available for freelance work
+
+---
+
+<div align="center">
+  <i>⭐ If you like my work, consider starring my repos!</i>
+</div>

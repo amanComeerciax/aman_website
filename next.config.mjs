@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   allowedDevOrigins: ['keila-arousable-bimolecularly.ngrok-free.dev'],
-  experimental: {
-    urlImports: [
-      "https://framer.com",
-      "https://framerusercontent.com",
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'skillicons.dev' },
+      { protocol: 'https', hostname: 'framerusercontent.com' },
+      { protocol: 'https', hostname: 'mohammadaman.in' },
     ],
   },
 };

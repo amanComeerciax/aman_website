@@ -15,12 +15,12 @@ const Certificates = () => {
   }, []);
 
   const certificateImages = [
-    "/images/certifiacte1.png",
-    "/images/certifiacte2.png",
-    "/images/certifiacte3.png",
-    "/images/certifiacte4.png",
-    "/images/certifiacte5.png",
-    "/images/certifiacte6.png",
+    "/images/certifiacte1.webp",
+    "/images/certifiacte2.webp",
+    "/images/certifiacte3.webp",
+    "/images/certifiacte4.webp",
+    "/images/certifiacte5.webp",
+    "/images/certifiacte6.webp",
   ];
 
   return (

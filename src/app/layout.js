@@ -1,4 +1,20 @@
 import "./globals.css";
+import { Inter, Instrument_Serif } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Mohammad Aman Memon | Full Stack Developer & Software Engineer",
@@ -12,7 +28,7 @@ export const metadata = {
     siteName: "Mohammad Aman Memon Portfolio",
     images: [
       {
-        url: "https://mohammadaman.in/images/portfolio.png",
+        url: "https://mohammadaman.in/images/portfolio.webp",
         width: 1200,
         height: 630,
       },
@@ -24,7 +40,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Mohammad Aman Memon | Full Stack Developer",
     description: "Portfolio of Mohammad Aman Memon, a Full Stack Developer specializing in React, Next.js, and AI integrations.",
-    images: ["https://mohammadaman.in/images/portfolio.png"],
+    images: ["https://mohammadaman.in/images/portfolio.webp"],
   },
   icons: {
     icon: "/favicon.svg",
@@ -33,7 +49,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`dark ${inter.variable} ${instrumentSerif.variable}`}>
       <body className="antialiased">
         {children}
       </body>

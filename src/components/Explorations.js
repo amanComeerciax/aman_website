@@ -47,11 +47,11 @@ const Explorations = () => {
   }, []);
 
   const images = [
-    "/images/25f406e2-871e-4cf3-9f89-08d82e3d9859%202.JPG",
-    "/images/IMG_5372.jpg",
-    "/images/IMG_6604.jpg",
-    "/images/IMG_6610.jpg",
-    "/images/23d70b24-90a1-4a53-b075-e7653c77749e.jpg"
+    "/images/25f406e2-871e-4cf3-9f89-08d82e3d9859 2.webp",
+    "/images/IMG_5372.webp",
+    "/images/IMG_6604.webp",
+    "/images/IMG_6610.webp",
+    "/images/23d70b24-90a1-4a53-b075-e7653c77749e.webp"
   ];
 
   return (

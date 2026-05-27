@@ -43,7 +43,7 @@ const Education = () => {
       period: "2021 - 2026", grade: "8.04 CGPA",
       description: "Completed Integrated Master's in Computer Application (IMCA) from LJ University, deepening my understanding of computing and technology.",
       tags: ["Data Structures", "Algorithms", "Web Dev", "DBMS"],
-      image: "/images/lj.png",
+      image: "/images/lj.webp",
       accent: "#1a5276"
     },
     {
@@ -194,7 +194,7 @@ const Education = () => {
                     <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/natural-paper.png')" }} />
                     <div className="absolute top-0 bottom-0 right-0 w-8" style={{ background: "linear-gradient(270deg, rgba(0,0,0,0.08) 0%, transparent 100%)" }} />
                     <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                      <img src="/images/lj.png" className="w-1/2 h-1/2 object-contain grayscale" alt="" />
+                      <img src="/images/lj.webp" className="w-1/2 h-1/2 object-contain grayscale" alt="" />
                     </div>
                   </div>
                 </motion.div>
@@ -235,7 +235,7 @@ const Education = () => {
 
               {/* Cover image */}
               <div className="absolute inset-0 flex items-center justify-center p-10 md:p-14 z-[1]">
-                <img src="/images/lj.png" className="w-[55%] h-[50%] object-contain" alt="cover"
+                <img src="/images/lj.webp" className="w-[55%] h-[50%] object-contain" alt="cover"
                   style={{ filter: "brightness(1.1) contrast(1.05) drop-shadow(0 0 30px rgba(26,82,118,0.25))" }} />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#080c10] via-transparent to-transparent opacity-90 z-[2]" />

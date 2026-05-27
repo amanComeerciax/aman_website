@@ -1,24 +1,27 @@
 "use client";
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Components
+// Above-the-fold — load eagerly
 import LoadingScreen from "@/components/LoadingScreen";
 import Navbar from "@/components/Navbar";
 import RiveHero from "@/components/RiveHero";
-import SelectedWorks from "@/components/SelectedWorks";
-import CoreSkills from "@/components/CoreSkills";
-import Explorations from "@/components/Explorations";
-import Certificates from "@/components/Certificates";
-import Stats from "@/components/Stats";
-import Education from "@/components/Education";
-import Footer from "@/components/Footer";
-import Experience from "@/components/Experience";
-import ScrollMorphHero from "@/components/ui/ScrollMorphHero";
 import UiloraBiolumeGrain from "@/components/Backgrounds/UiloraBiolumeGrain";
 import Particles from "@/components/ui/Particles";
+
+// Below-the-fold — lazy loaded
+const SelectedWorks = dynamic(() => import("@/components/SelectedWorks"), { ssr: false });
+const CoreSkills = dynamic(() => import("@/components/CoreSkills"), { ssr: false });
+const Explorations = dynamic(() => import("@/components/Explorations"), { ssr: false });
+const Certificates = dynamic(() => import("@/components/Certificates"), { ssr: false });
+const Stats = dynamic(() => import("@/components/Stats"), { ssr: false });
+const Education = dynamic(() => import("@/components/Education"), { ssr: false });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
+const Experience = dynamic(() => import("@/components/Experience"), { ssr: false });
+const ScrollMorphHero = dynamic(() => import("@/components/ui/ScrollMorphHero"), { ssr: false });
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);

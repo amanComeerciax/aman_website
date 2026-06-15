@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter, Instrument_Serif } from "next/font/google";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,6 +53,16 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`dark ${inter.variable} ${instrumentSerif.variable}`}>
       <body className="antialiased">
         {children}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-K17JPRHLG9" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-K17JPRHLG9');
+          `}
+        </Script>
       </body>
     </html>
   );

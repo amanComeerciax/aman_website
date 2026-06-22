@@ -54,6 +54,12 @@ const Explorations = () => {
     "/images/23d70b24-90a1-4a53-b075-e7653c77749e.webp"
   ];
 
+  // Some images are stored with wrong orientation — fix via CSS rotation
+  const imageRotationFix = {
+    "/images/IMG_6604.webp": "rotate(90deg) scale(1.25)",
+    "/images/IMG_6610.webp": "rotate(90deg) scale(1.25)",
+  };
+
   return (
     <section id="explorations" ref={pinRef} className="relative min-h-screen w-full bg-transparent flex flex-col justify-start items-center pt-20 md:pt-32 pb-12 md:pb-20">
       {/* Content */}
@@ -76,7 +82,7 @@ const Explorations = () => {
           {images.slice(0, 3).map((src, i) => (
             <div key={i} className="relative w-[70vw] sm:w-[200px] md:w-[320px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-white/5 rotate-2 md:rotate-3 hover:rotate-0 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,209,178,0.15)] transition-all duration-700 ease-out cursor-pointer will-change-transform group">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-white/5 opacity-70 z-10 pointer-events-none group-hover:opacity-40 transition-opacity duration-700" />
-              <img src={src} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out" alt="Achievement" loading="lazy" decoding="async" />
+              <img src={src} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out" style={imageRotationFix[src] ? { transform: imageRotationFix[src] } : {}} alt="Achievement" loading="lazy" decoding="async" />
               <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-[#00d1b2]/40 z-20 pointer-events-none transition-colors duration-700" />
             </div>
           ))}
@@ -85,7 +91,7 @@ const Explorations = () => {
           {images.slice(3, 6).map((src, i) => (
             <div key={i} className="relative w-[70vw] sm:w-[200px] md:w-[320px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-white/5 -rotate-2 md:-rotate-3 hover:rotate-0 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,209,178,0.15)] transition-all duration-700 ease-out cursor-pointer will-change-transform group">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-white/5 opacity-70 z-10 pointer-events-none group-hover:opacity-40 transition-opacity duration-700" />
-              <img src={src} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out" alt="Achievement" loading="lazy" decoding="async" />
+              <img src={src} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out" style={imageRotationFix[src] ? { transform: imageRotationFix[src] } : {}} alt="Achievement" loading="lazy" decoding="async" />
               <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-[#00d1b2]/40 z-20 pointer-events-none transition-colors duration-700" />
             </div>
           ))}

@@ -54,6 +54,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`dark ${inter.variable} ${instrumentSerif.variable}`}>
+      <head>
+        <script src="https://osmo.backend.commerciax.com/embed/osmo-seo.js" data-workspace="9acec945-80e9-4ce8-bfd4-cd776c3df620" async></script>
+      </head>
       <body className="antialiased">
         {children}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-K17JPRHLG9" strategy="afterInteractive" />
@@ -66,7 +69,6 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-K17JPRHLG9');
           `}
         </Script>
-        <Script src="https://osmo.backend.commerciax.com/embed/osmo-seo.js" data-workspace="9acec945-80e9-4ce8-bfd4-cd776c3df620" strategy="afterInteractive" />
       </body>
     </html>
   );

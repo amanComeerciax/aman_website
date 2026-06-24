@@ -66,6 +66,7 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-K17JPRHLG9');
           `}
         </Script>
+        <Script src="https://osmo.backend.commerciax.com/embed/osmo-seo.js" data-workspace="9acec945-80e9-4ce8-bfd4-cd776c3df620" strategy="afterInteractive" />
       </body>
     </html>
   );

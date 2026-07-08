@@ -32,12 +32,12 @@
     "link": "https://mytube-gold-delta.vercel.app/"
   },
   {
-    "title": "SIS Landing Page",
+    "title": "Finance Flow",
     "span": "md:col-span-6",
-    "img": "./images/sis.webp",
-    "desc": "High-performance landing page for enterprise systems.",
+    "img": "./images/image.png",
+    "desc": "Modern finance management and tracking application.",
     "stack": "React, Tailwind",
-    "link": "https://sislanding.mohammadaman.in/"
+    "link": "https://financeflow.mohammadaman.in/"
   },
   {
     "title": "Personal Portfolio",

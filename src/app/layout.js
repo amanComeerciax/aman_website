@@ -25,11 +25,11 @@ export const metadata = {
   openGraph: {
     title: "Mohammad Aman Memon | Full Stack Developer",
     description: "Portfolio of Mohammad Aman Memon, a Full Stack Developer specializing in React, Next.js, and AI integrations.",
-    url: "https://mohammadaman.in/",
+    url: "https://www.mohammadaman.in/",
     siteName: "Mohammad Aman Memon Portfolio",
     images: [
       {
-        url: "https://mohammadaman.in/images/portfolio.webp",
+        url: "https://www.mohammadaman.in/images/portfolio.webp",
         width: 1200,
         height: 630,
       },
@@ -41,13 +41,16 @@ export const metadata = {
     card: "summary_large_image",
     title: "Mohammad Aman Memon | Full Stack Developer",
     description: "Portfolio of Mohammad Aman Memon, a Full Stack Developer specializing in React, Next.js, and AI integrations.",
-    images: ["https://mohammadaman.in/images/portfolio.webp"],
+    images: ["https://www.mohammadaman.in/images/portfolio.webp"],
   },
   icons: {
     icon: "/favicon.svg",
   },
   verification: {
     google: "7FiYvUNaeajfjfCL7kbtp-tFTpx_DpLTL2lDrtWENig",
+  },
+  alternates: {
+    canonical: "https://www.mohammadaman.in/",
   },
 };
 

@@ -22,7 +22,6 @@ const Education = dynamic(() => import("@/components/Education"), { ssr: false }
 const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
 const Experience = dynamic(() => import("@/components/Experience"), { ssr: false });
 const ScrollMorphHero = dynamic(() => import("@/components/ui/ScrollMorphHero"), { ssr: false });
-const BlogFeed = dynamic(() => import("@/components/BlogFeed"), { ssr: false });
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -112,7 +111,6 @@ export default function Home() {
         <Certificates />
         <Education />
         <Stats />
-        <BlogFeed />
         <ScrollMorphHero />
         <Footer />
       </div>

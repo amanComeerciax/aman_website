@@ -13,7 +13,7 @@ const SelectedWorks = () => {
     { title: "PDF Analyzer", span: "md:col-span-4", img: "/images/pdfanalyzer.webp", desc: "AI-powered document analysis and insight extraction.", stack: "Python, Next.js, OpenAI", link: "https://ragpdf.mohammadaman.in/" },
     { title: "MyTube Platform", span: "md:col-span-8", img: "/images/mytube.webp", desc: "Feature-rich video streaming platform clone.", stack: "React, Node.js, API", link: "https://mytube.mohammadaman.in/" },
     { title: "Finance Flow", span: "md:col-span-6", img: "/images/image.png", desc: "Modern finance management and tracking application.", stack: "React, Tailwind", link: "https://financeflow.mohammadaman.in/" },
-    { title: "Personal Portfolio", span: "md:col-span-6", img: "/images/portfolio.webp", desc: "Premium personal portfolio showcasing my engineering work.", stack: "React, Tailwind, Framer", link: "https://portfolio.mohammadaman.in/" }
+    { title: "Personal Portfolio", span: "md:col-span-6", img: "/images/image copy.png", desc: "Premium personal portfolio showcasing my engineering work.", stack: "React, Tailwind, Framer", link: "https://portfolio.mohammadaman.in/" }
   ];
 
   const [projects, setProjects] = useState(PROJECTS_DATA);

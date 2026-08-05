@@ -29,7 +29,7 @@ export const metadata = {
     siteName: "Mohammad Aman Memon Portfolio",
     images: [
       {
-        url: "https://www.mohammadaman.in/images/portfolio.webp",
+        url: "https://www.mohammadaman.in/images/pro.png",
         width: 1200,
         height: 630,
       },
@@ -41,7 +41,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Mohammad Aman Memon | Full Stack Developer",
     description: "Portfolio of Mohammad Aman Memon, a Full Stack Developer specializing in React, Next.js, and AI integrations.",
-    images: ["https://www.mohammadaman.in/images/portfolio.webp"],
+    images: ["https://www.mohammadaman.in/images/pro.png"],
   },
   icons: {
     icon: "/favicon.svg",
@@ -59,6 +59,46 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`dark ${inter.variable} ${instrumentSerif.variable}`}>
       <head>
         <script src="https://osmo.backend.commerciax.com/embed/osmo-seo.js" data-workspace="9acec945-80e9-4ce8-bfd4-cd776c3df620" async></script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org/",
+              "@type": "Person",
+              "name": "Mohammad Aman Memon",
+              "jobTitle": "Full Stack Developer & Software Engineer",
+              "email": "amanmemon0014@gmail.com",
+              "url": "https://www.mohammadaman.in/",
+              "image": "https://www.mohammadaman.in/images/pro.png",
+              "sameAs": [
+                "https://www.linkedin.com/in/mohammad-aman-memon/"
+              ],
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Commerciax Infotech Pvt Ltd"
+              },
+              "areaServed": [
+                {
+                  "@type": "Place",
+                  "name": "Ahmedabad, Gujarat, India"
+                },
+                {
+                  "@type": "Place",
+                  "name": "Remote Worldwide"
+                }
+              ],
+              "knowsAbout": [
+                "Web Development",
+                "Full Stack Development",
+                "MERN Stack Development",
+                "React.js Development",
+                "Node.js Development",
+                "API Development",
+                "AI Integration"
+              ]
+            })
+          }}
+        />
       </head>
       <body className="antialiased">
         {children}

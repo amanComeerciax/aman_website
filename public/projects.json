@@ -42,7 +42,7 @@
   {
     "title": "Personal Portfolio",
     "span": "md:col-span-6",
-    "img": "./images/portfolio.webp",
+    "img": "./images/image copy.png",
     "desc": "Premium personal portfolio showcasing my engineering work.",
     "stack": "React, Tailwind, Framer",
     "link": "https://portfolio.mohammadaman.in/"

@@ -20,7 +20,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata = {
   title: "Mohammad Aman Memon | Full Stack Developer & Software Engineer",
   description: "Portfolio of Mohammad Aman Memon, a Full Stack Developer specializing in modern web architecture, React, Next.js, and AI integrations.",
-  keywords: ["Mohammad Aman Memon", "Aman Memon", "Full Stack Developer", "Software Engineer", "React Developer", "Next.js", "JavaScript", "Web Development", "AI Engineer", "India"],
+  keywords: ["Mohammad Aman Memon", "Aman Memon", "Amaan Memon", "Amaan", "Full Stack Developer", "Software Engineer", "React Developer", "Next.js", "JavaScript", "Web Development", "AI Engineer", "India"],
   authors: [{ name: "Mohammad Aman Memon" }],
   openGraph: {
     title: "Mohammad Aman Memon | Full Stack Developer",
@@ -65,6 +65,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org/",
               "@type": "Person",
               "name": "Mohammad Aman Memon",
+              "alternateName": ["Amaan Memon", "Aman Memon"],
               "jobTitle": "Full Stack Developer & Software Engineer",
               "email": "amanmemon0014@gmail.com",
               "url": "https://www.mohammadaman.in/",
@@ -106,6 +107,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
               "name": "Mohammad Aman Memon - Web & AI Development Services",
+              "alternateName": ["Amaan Memon Web Development", "Amaan Memon"],
               "image": "https://www.mohammadaman.in/images/pro.png",
               "telephone": "+91-9265588226",
               "url": "https://www.mohammadaman.in/",

@@ -44,7 +44,7 @@ const Footer = () => {
     { name: 'Phone', icon: <FaPhoneAlt size={22} />, url: 'tel:+919265588226', color: "hover:text-[#34a853]" },
     { name: 'GitHub', icon: <FaGithub size={26} />, url: 'https://github.com/amanComeerciax', color: "hover:text-white" },
     { name: 'LinkedIn', icon: <FaLinkedinIn size={24} />, url: 'https://www.linkedin.com/in/mohammad-aman-memon/', color: "hover:text-[#0a66c2]" },
-    { name: 'Twitter', icon: <FaTwitter size={24} />, url: 'https://twitter.com/amanComeerciax', color: "hover:text-[#1da1f2]" },
+    { name: 'Twitter', icon: <FaTwitter size={24} />, url: 'https://x.com/AmaanMe54800548', color: "hover:text-[#1da1f2]" },
   ];
 
   return (

@@ -58,7 +58,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`dark ${inter.variable} ${instrumentSerif.variable}`}>
       <head>
-        <script src="https://osmo.backend.commerciax.com/embed/osmo-seo.js" data-workspace="9acec945-80e9-4ce8-bfd4-cd776c3df620" async></script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -71,7 +70,8 @@ export default function RootLayout({ children }) {
               "url": "https://www.mohammadaman.in/",
               "image": "https://www.mohammadaman.in/images/pro.png",
               "sameAs": [
-                "https://www.linkedin.com/in/mohammad-aman-memon/"
+                "https://www.linkedin.com/in/mohammad-aman-memon/",
+                "https://x.com/AmaanMe54800548"
               ],
               "worksFor": {
                 "@type": "Organization",
@@ -96,6 +96,67 @@ export default function RootLayout({ children }) {
                 "API Development",
                 "AI Integration"
               ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "Mohammad Aman Memon - Web & AI Development Services",
+              "image": "https://www.mohammadaman.in/images/pro.png",
+              "telephone": "+91-9265588226",
+              "url": "https://www.mohammadaman.in/",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Ahmedabad",
+                "addressRegion": "Gujarat",
+                "addressCountry": "IN"
+              },
+              "priceRange": "$$",
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Development Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Full Stack Development with AI Integration"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AI Development"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Freelancing Website Development"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AI Solutions"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Custom Web Apps"
+                    }
+                  }
+                ]
+              }
             })
           }}
         />

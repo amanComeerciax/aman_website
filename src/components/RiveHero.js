@@ -89,7 +89,7 @@ const RiveHero = () => {
         {/* Right Side: Rive Animation */}
         <div className="h-[300px] xs:h-[350px] sm:h-[500px] lg:h-[800px] w-full relative order-2 lg:col-span-7 overflow-visible">
           <div 
-            className="absolute inset-0 scale-[1.15] lg:scale-[1.1] origin-center lg:translate-x-4"
+            className="absolute inset-0 scale-[1.15] lg:scale-[1.1] origin-center lg:translate-x-4 pointer-events-none lg:pointer-events-auto"
             style={{
               WebkitMaskImage: "radial-gradient(circle at center, black 50%, transparent 80%)",
               maskImage: "radial-gradient(circle at center, black 50%, transparent 80%)"

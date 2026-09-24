@@ -93,13 +93,13 @@ const Folder = ({ color = '#00d1b2', size = 1, items = [], label = '', className
                   ? {
                       '--magnet-x': `${paperOffsets[i]?.x || 0}px`,
                       '--magnet-y': `${paperOffsets[i]?.y || 0}px`,
-                      zIndex: open ? 10 + i : 2,
-                      // Distribute more items if needed
-                      ...(items.length > 0 && open ? {
-                        transform: `translate(${(-50 + (i - (items.length - 1) / 2) * (isMobile ? 40 : 85))}%, ${(-100 + Math.abs(i - (items.length - 1) / 2) * (isMobile ? 12 : 20))}%) rotateZ(${(i - (items.length - 1) / 2) * (isMobile ? 8 : 15)}deg)`
-                      } : {})
+                      zIndex: 10 + i,
+                      transform: `translate(${(-50 + (i - (items.length - 1) / 2) * (isMobile ? 40 : 85))}%, ${(-100 + Math.abs(i - (items.length - 1) / 2) * (isMobile ? 12 : 20))}%) rotateZ(${(i - (items.length - 1) / 2) * (isMobile ? 8 : 15)}deg)`
                     }
-                  : { zIndex: 2 }
+                  : { 
+                      zIndex: 2,
+                      transform: ''
+                    }
               }
             >
               {item}

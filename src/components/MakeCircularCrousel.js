@@ -47,16 +47,16 @@ export default function MakeCircularCrousel(props) {
 
       if (isMobile) {
         setDimensions({
-          radius: Math.min(radius, window.innerWidth * 0.85),
-          itemWidth: 80,
-          itemHeight: 80,
+          radius: Math.min(radius, (window.innerWidth / 2) - 40),
+          itemWidth: 48,
+          itemHeight: 48,
           perspective: 800
         });
       } else if (isTablet) {
         setDimensions({
-          radius: radius * 0.8,
-          itemWidth: itemWidth * 0.8,
-          itemHeight: itemHeight * 0.8,
+          radius: Math.min(radius, (window.innerWidth / 2) - 80),
+          itemWidth: 70,
+          itemHeight: 70,
           perspective: perspective
         });
       } else {

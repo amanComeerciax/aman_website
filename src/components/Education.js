@@ -92,9 +92,14 @@ const Education = () => {
 
       <div className="flex flex-col items-center justify-center min-h-[450px] md:min-h-[650px] w-full relative">
         {/* Book Container */}
-        <div
+        <motion.div
           className="relative cursor-pointer"
-          style={{ width: bookW, height: bookH, perspective: 1200, transformStyle: "preserve-3d" }}
+          style={{ width: bookW, height: bookH, perspective: 1200, transformStyle: "preserve-3d", transformOrigin: "left center" }}
+          animate={{ 
+            x: isOpen ? bookW / 2 : 0,
+            scale: (isOpen && isMobile && typeof window !== "undefined") ? Math.min(1, (window.innerWidth - 30) / (bookW * 2)) : 1
+          }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
           onMouseEnter={() => !isMobile && setIsOpen(true)}
           onMouseLeave={() => { if (!isMobile) { setIsOpen(false); setActiveIdx(0); } }}
           onClick={handleBookClick}
@@ -277,7 +282,7 @@ const Education = () => {
             background: "linear-gradient(180deg, #1a1510, #0c0a07 50%, #1a1510)",
             boxShadow: "inset -3px 0 8px rgba(0,0,0,0.6)",
           }} />
-        </div>
+        </motion.div>
 
         {/* Hover hint */}
         <motion.p

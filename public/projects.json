@@ -18,10 +18,10 @@
   {
     "title": "PDF Analyzer",
     "span": "md:col-span-4",
-    "img": "./images/pdfanalyzer.webp",
+    "img": "./images/pdfbot.jpg",
     "desc": "AI-powered document analysis and insight extraction.",
     "stack": "Python, Next.js, OpenAI",
-    "link": "https://ragpdf.mohammadaman.in/"
+    "link": "https://pdfbot.mohammadaman.in/"
   },
   {
     "title": "MyTube Platform",
@@ -46,5 +46,13 @@
     "desc": "Premium personal portfolio showcasing my engineering work.",
     "stack": "React, Tailwind, Framer",
     "link": "https://portfolio.mohammadaman.in/"
+  },
+  {
+    "title": "10X International",
+    "span": "md:col-span-4",
+    "img": "./images/10x.png",
+    "desc": "B2B Import & Export platform connecting global markets.",
+    "stack": "React, Tailwind",
+    "link": "https://www.10xinternationals.com/"
   }
 ]

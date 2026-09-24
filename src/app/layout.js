@@ -56,7 +56,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`dark ${inter.variable} ${instrumentSerif.variable}`}>
+    <html lang="en" className={`dark ${inter.variable} ${instrumentSerif.variable} overflow-x-hidden`}>
       <head>
         <script
           type="application/ld+json"
@@ -163,7 +163,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased overflow-x-hidden w-full">
         {children}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-K17JPRHLG9" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">

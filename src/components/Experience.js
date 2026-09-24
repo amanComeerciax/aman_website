@@ -71,7 +71,7 @@ const Experience = () => {
             </p>
 
             {/* ZIPPER Toggle */}
-            <div className="relative w-12 h-48 flex flex-col items-center">
+            <div className="relative w-12 h-48 flex flex-col items-center mx-auto lg:mx-0 mt-8 lg:mt-0">
               {/* Zipper Track */}
               <div className="absolute top-0 w-2 h-full bg-white/5 rounded-full overflow-hidden">
                 <svg className="w-full h-full">

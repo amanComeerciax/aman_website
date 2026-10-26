@@ -19,8 +19,8 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata = {
   title: "Mohammad Aman Memon | Full Stack Developer & Software Engineer",
-  description: "Portfolio of Mohammad Aman Memon, a Full Stack Developer specializing in modern web architecture, React, Next.js, and AI integrations.",
-  keywords: ["Mohammad Aman Memon", "Aman Memon", "Amaan Memon", "Amaan", "Full Stack Developer", "Software Engineer", "React Developer", "Next.js", "JavaScript", "Web Development", "AI Engineer", "India"],
+  description: "Portfolio of Mohammad Aman Memon, a Full Stack Developer specializing in modern web architecture, React, Next.js, AI integrations, AEO, and GEO.",
+  keywords: ["Mohammad Aman Memon", "Aman Memon", "Amaan Memon", "Amaan", "Full Stack Developer", "Software Engineer", "React Developer", "Next.js", "JavaScript", "Web Development", "AI Engineer", "AEO", "GEO", "Generative Engine Optimization", "Answer Engine Optimization", "AI Search Optimization", "India"],
   authors: [{ name: "Mohammad Aman Memon" }],
   openGraph: {
     title: "Mohammad Aman Memon | Full Stack Developer",
@@ -95,7 +95,10 @@ export default function RootLayout({ children }) {
                 "React.js Development",
                 "Node.js Development",
                 "API Development",
-                "AI Integration"
+                "AI Integration",
+                "Answer Engine Optimization (AEO)",
+                "Generative Engine Optimization (GEO)",
+                "AI Search Visibility"
               ]
             })
           }}
@@ -127,6 +130,13 @@ export default function RootLayout({ children }) {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Full Stack Development with AI Integration"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Generative Engine Optimization (GEO) & AEO"
                     }
                   },
                   {

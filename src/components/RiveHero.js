@@ -32,7 +32,7 @@ const RiveHero = () => {
       );
   }, []);
 
-  const roles = ["Full Stack Developer", "Software Engineer", "Freelancer", "Creator"];
+  const roles = ["Full Stack Developer", "Software Engineer", "AEO & GEO Specialist", "AI & Web Engineer"];
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {

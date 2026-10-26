@@ -16,9 +16,9 @@ const Experience = () => {
 
   const skills = [
     "React.js", "Node.js", "MongoDB", "Express.js", "Docker", 
-    "Payment Gateways", "JWT", "Git", "GitHub", "WebRTC", 
-    "Firebase", "Socket.io", "Cloudinary", "Vercel", "Render", 
-    "Redis", "RAG"
+    "AEO & GEO", "AI Optimization", "Payment Gateways", "JWT", 
+    "Git", "GitHub", "WebRTC", "Firebase", "Socket.io", 
+    "Cloudinary", "Vercel", "Render", "Redis", "RAG"
   ];
 
   const handleDragEnd = () => {

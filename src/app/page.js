@@ -25,8 +25,10 @@ const ScrollMorphHero = dynamic(() => import("@/components/ui/ScrollMorphHero"),
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const [particleCount, setParticleCount] = useState(100);
 
   useEffect(() => {
+    setParticleCount(window.innerWidth < 768 ? 30 : 100);
     gsap.registerPlugin(ScrollTrigger);
 
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -96,7 +98,7 @@ export default function Home() {
 
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       <Particles 
-        particleCount={100}
+        particleCount={particleCount}
         color="#00d1b2"
         speed={0.5}
         staticity={30}

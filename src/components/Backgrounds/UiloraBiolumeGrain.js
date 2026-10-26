@@ -140,7 +140,9 @@ const UiloraBiolumeGrain = ({
 
         const resize = () => {
             if (!containerRef.current) return;
-            const dpr = Math.min(window.devicePixelRatio, 1.5); // Cap DPR for performance
+            const isMobile = window.innerWidth < 768;
+            const maxDpr = isMobile ? 1.0 : 1.5;
+            const dpr = Math.min(window.devicePixelRatio, maxDpr); // Cap DPR for performance
             renderer.dpr = dpr * 0.75; // Correct property for OGL
             renderer.setSize(window.innerWidth, window.innerHeight);
             program.uniforms.uResolution.value.set(gl.canvas.width, gl.canvas.height);
